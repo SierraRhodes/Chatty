@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
+// CheckboxContext.tsx
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface CheckboxContextProps {
   isChecked: boolean;
@@ -7,7 +8,11 @@ interface CheckboxContextProps {
 
 const CheckboxContext = createContext<CheckboxContextProps | undefined>(undefined);
 
-export const CheckboxProvider: React.FC = ({ childr }) => {
+interface CheckboxProviderProps {
+  children?: ReactNode;
+}
+
+export const CheckboxProvider: React.FC<CheckboxProviderProps> = ({ children }) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const toggleCheckbox = () => {

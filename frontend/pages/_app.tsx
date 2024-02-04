@@ -1,6 +1,17 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
 
-export default function App({ Component, pageProps }: AppProps) {
-    return <Component {...pageProps} />;
+import React from 'react';
+import { CheckboxProvider } from './CheckboxContect';
+import AuthPage from './AuthPage';
+
+import "../styles/globals.css";
+import "../styles/navbar.css";
+
+function App() {
+  return (
+    <CheckboxProvider>
+      <AuthPage />
+    </CheckboxProvider>
+  );
 }
+
+export default App;
